@@ -1,46 +1,21 @@
 const fs = require('fs');
-const axios = require('axios');
+const path = require('path');
 
-const username = 'revida';
-const token = process.env.GH_DAY;
+// Baca file README.md
+const readmePath = path.join(__dirname, 'README.md');
+let readmeContent = fs.readFileSync(readmePath, 'utf-8');
 
-async function getTotalActiveDays() {
-    const url = `https://api.github.com/users/${username}/events`;
-    try {
-        const response = await axios.get(url, {
-            headers: {
-                'Authorization': `token ${token}`
-            }
-        });
+// Hitung total hari aktif (ganti dengan logika Anda)
+const totalActiveDays = calculateTotalActiveDays(); // Misal, ini bisa mengembalikan angka total hari
 
-        const events = response.data;
-        const activeDays = new Set();
+// Update badge total active days
+const newBadge = `![Total Days Active](https://img.shields.io/badge/Total%20Days%20Active-${totalActiveDays}-blue?style=for-the-badge)`;
+readmeContent = readmeContent.replace(/Total Days Active.*?\n/, newBadge + '\n');
 
-        events.forEach(event => {
-            const date = new Date(event.created_at);
-            const formattedDate = date.toISOString().split('T')[0]; // Format YYYY-MM-DD
-            activeDays.add(formattedDate);
-        });
+// Tulis kembali ke README.md
+fs.writeFileSync(readmePath, readmeContent, 'utf-8');
 
-        console.log(`Total active days: ${activeDays.size}`);
-        return activeDays.size; // Kembalikan jumlah hari aktif
-    } catch (error) {
-        console.error('Error fetching data from GitHub API:', error);
-    }
+function calculateTotalActiveDays() {
+    // Logika untuk menghitung total hari aktif
+    return 10; // Ganti dengan logika yang sesuai
 }
-
-async function updateReadme(activeDays) {
-    const readmePath = 'README.md';
-    const readmeContent = fs.readFileSync(readmePath, 'utf-8');
-
-    // Update badge
-    const newContent = readmeContent.replace(/Total%20Days%20Active-\d+/g, `Total%20Days%20Active-${activeDays}`);
-    fs.writeFileSync(readmePath, newContent);
-}
-
-(async () => {
-    const activeDays = await getTotalActiveDays();
-    if (activeDays !== undefined) {
-        await updateReadme(activeDays);
-    }
-})();
