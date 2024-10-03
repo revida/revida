@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install axios
+          npm install
 
       - name: Run script to update README
         env:
@@ -32,4 +32,4 @@ jobs:
           git config --local user.email "revidachandrika@gmail.com"
           git add README.md
           git commit -m "Update total active days in README" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GH_DAY }}@github.com/revida/revida.git
