@@ -1,0 +1,35 @@
+name: Update README with Active Days
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Menjalankan setiap hari pada tengah malam
+  workflow_dispatch:  # Memungkinkan menjalankan secara manual
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Sesuaikan versi Node.js
+
+      - name: Install dependencies
+        run: |
+          npm install axios
+
+      - name: Run script to update README
+        env:
+          GH_TOKEN: ${{ secrets.GH_DAY }}  # Menggunakan secret untuk token
+        run: node update-day.js
+
+      - name: Commit changes
+        run: |
+          git config --local user.name "revida"
+          git config --local user.email "revidachandrika@gmail.com"
+          git add README.md
+          git commit -m "Update total active days in README" || echo "No changes to commit"
+          git push
