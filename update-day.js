@@ -39,7 +39,7 @@ async function updateReadme() {
 
     // Update badge total active days
     const newBadge = `![Total Days Active](https://img.shields.io/badge/Total%20Days%20Active-${totalActiveDays}-blue?style=for-the-badge)`;
-    const badgeRegex = /<p align="center">\s*<a href="https:\/\/github.com\/revida">\s*<img src="https:\/\/img.shields.io\/badge\/Total%20Days%20Active-.*?-blue\?style=for-the-badge" alt=".*?"/;
+    const badgeRegex = /<p align="center">\s*<a href="https:\/\/github.com\/revida">\s*<img src="https:\/\/img.shields.io\/badge\/Total%20Days%20Active-[0-9]+-blue\?style=for-the-badge" alt=".*?"/;
 
     // Ganti badge lama dengan yang baru
     readmeContent = readmeContent.replace(badgeRegex, `<p align="center">\n  <a href="https://github.com/revida">\n    ${newBadge}\n  </a>\n</p>`);
