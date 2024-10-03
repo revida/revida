@@ -10,7 +10,9 @@
 </p>
 <p align="center">
   <a href="https://github.com/revida">
-    <img src="https://img.shields.io/badge/Total%20Days%20Active-XX-blue?style=for-the-badge" alt="Total Days Active"/>
+    ![Total Days Active](https://img.shields.io/badge/Total%20Days%20Active-1-blue?style=for-the-badge)
+  </a>
+</p>/>
   </a>
 </p>
 
