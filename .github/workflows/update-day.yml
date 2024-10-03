@@ -1,4 +1,4 @@
-name: Update README with Active Days
+name: Update README with Distinct Days
 
 on:
   schedule:
@@ -19,7 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
           npm install axios
 
       - name: Run script to update README
@@ -31,6 +30,6 @@ jobs:
         run: |
           git config --local user.name "revida"
           git config --local user.email "revidachandrika@gmail.com"
-          git add README.md  # Hanya tambahkan README.md
-          git commit -m "Update total active days in README" || echo "No changes to commit"
+          git add README.md
+          git commit -m "Update distinct days active in README" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GH_DAY }}@github.com/revida/revida.git
