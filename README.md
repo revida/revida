@@ -6,17 +6,5 @@
 
 📊 **GitHub Stats**:
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=revida&theme=algolia" alt="GitHub Streak Stats"/>
-</p>
-<p align="center">
-  <a href="https://github.com/revida">
-    <img src="https://img.shields.io/badge/Total%20Days%20Active-XX-blue?style=for-the-badge" alt="Total Days Active"/>
-  </a>
-</p>
-<p align="center">
-  <a href="https://github.com/revida">
-    ![Distinct Days Active](https://img.shields.io/badge/Distinct%20Days%20Active-1-blue?style=for-the-badge)
-  </a>
-</p>/>
-  </a>
+  ![Distinct Days Active](https://github-readme-stats.vercel.app/api?username=revida&show_icons=true&count_private=true&theme=radical)
 </p>
