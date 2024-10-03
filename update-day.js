@@ -2,7 +2,7 @@ const fs = require('fs');
 const axios = require('axios');
 
 const username = 'revida';
-const token = process.env.GH_TOKEN;
+const token = process.env.GH_DAY;
 
 async function getTotalActiveDays() {
     const url = `https://api.github.com/users/${username}/events`;
