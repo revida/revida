@@ -20,6 +20,8 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
+          npm install axios
+
 
       - name: Run script to update README
         env:
