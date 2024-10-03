@@ -9,7 +9,7 @@ let readmeContent = fs.readFileSync(readmePath, 'utf-8');
 // Ganti dengan username dan repositori Anda
 const username = 'revida';
 const repo = 'revida';
-const token = process.env.GH_DAY; // Mengambil token dari environment variable
+const token = process.env.GH_TOKEN; // Mengambil token dari environment variable
 
 async function calculateTotalContributionDays() {
     try {
